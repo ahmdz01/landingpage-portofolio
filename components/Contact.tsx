@@ -10,14 +10,14 @@ const socials = [
   {
     icon: Mail,
     label: "Email",
-    value: "email@kamu.com",
-    href: "mailto:email@kamu.com",
+    value: "ahmadrafdy01@gmail.com", // ganti dengan email kamu
+    href: "mailto:ahmadrafdy01@gmail.com", // ganti dengan email kamu
   },
   {
-    // icon: Linkedin,
-    // label: "LinkedIn",
-    value: "linkedin.com/in/yourusername",
-    href: "https://linkedin.com/in/yourusername",
+    icon: <LinkedinIcon />,
+    label: "LinkedIn",
+    value: "linkedin.com/in/USERNAME_KAMU", // ganti username
+    href: "https://linkedin.com/in/USERNAME_KAMU", // ganti username
   },
 ];
 
@@ -79,16 +79,13 @@ ${form.message}`,
           <p className="leading-relaxed text-muted-foreground">Saya terbuka untuk peluang freelance, full-time maupun kolaborasi open source. Response time biasanya kurang dari 24 jam.</p>
 
           <div className="space-y-4">
-            {socials.map(({ icon: Icon, label, value, href }) => (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-xl border border-border p-4 transition-all hover:border-primary/50 hover:bg-accent">
-                {/* <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all group-hover:bg-primary group-hover:text-primary-foreground">
-                  <Icon size={18} />
-                </div> */}
-
+            {socials.map((social) => (
+              <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 rounded-xl border border-border p-4 transition-all hover:border-primary/50 hover:bg-accent">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all group-hover:bg-primary group-hover:text-primary-foreground">{social.icon}</div>
                 <div>
-                  <p className="text-xs text-muted-foreground">{label}</p>
+                  <p className="text-xs text-muted-foreground">{social.label}</p>
 
-                  <p className="text-sm font-medium">{value}</p>
+                  <p className="text-sm font-medium">{social.value}</p>
                 </div>
               </a>
             ))}

@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDown, Mail, Linkedin } from "lucide-react";
 
 function GithubIcon() {
   return (
@@ -54,9 +54,9 @@ export default function Hero() {
           <a href="https://github.com/ahmdz01" target="_blank" className="hover:text-foreground transition-colors p-2 rounded-full hover:bg-accent">
             <GithubIcon />
           </a>
-          {/* <a href="https://linkedin.com/in/yourusername" target="_blank" className="hover:text-foreground transition-colors p-2 rounded-full hover:bg-accent">
+          <a href="https://linkedin.com/in/USERNAME_KAMU" target="_blank" className="hover:text-foreground transition-colors p-2 rounded-full hover:bg-accent">
             <Linkedin size={20} />
-          </a> */}
+          </a>
           <a href="mailto:email@kamu.com" className="hover:text-foreground transition-colors p-2 rounded-full hover:bg-accent">
             <Mail size={20} />
           </a>

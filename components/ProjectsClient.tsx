@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-// import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { Repo } from "@/lib/github";
 import { Code, ExternalLink, GitFork, Star } from "lucide-react";
 
@@ -98,11 +98,11 @@ export default function ProjectsClient({ repos }: Props) {
             {/* Topics */}
             {repo.topics.length > 0 && (
               <div className="my-4 flex flex-wrap gap-1">
-                {/* {repo.topics.slice(0, 3).map((topic) => (
+                {repo.topics.slice(0, 3).map((topic) => (
                   <Badge key={topic} variant="secondary" className="text-xs">
                     {topic}
                   </Badge>
-                ))} */}
+                ))}
               </div>
             )}
 
@@ -135,7 +135,7 @@ export default function ProjectsClient({ repos }: Props) {
 
       {/* Footer Button */}
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-12 text-center">
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-accent">
+        <a href="https://github.com/ahmdz01" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-accent">
           Lihat semua di GitHub
           <ExternalLink size={14} />
         </a>
