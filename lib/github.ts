@@ -28,8 +28,5 @@ export async function getGithubRepos(username: string): Promise<Repo[]> {
 
   const repos: Repo[] = await res.json();
 
-  return repos
-    .filter((repo) => !repo.fork)
-    .sort((a, b) => b.stargazers_count - a.stargazers_count)
-    .slice(0, 9);
+  return repos.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime()).slice(0, 9);
 }
