@@ -1,6 +1,7 @@
 "use client";
+
 import { motion } from "framer-motion";
-import { ArrowDown, Mail } from "lucide-react";
+import { ArrowDown, ExternalLink, Mail } from "lucide-react";
 
 function GithubIcon() {
   return (
@@ -18,61 +19,121 @@ function LinkedinIcon() {
   );
 }
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:48px_48px]" />
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center">
+      {/* Background */}
+      <div className="absolute left-1/4 top-0 -z-10 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 -z-10 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
 
-      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} className="relative z-10 max-w-3xl">
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/20 mx-auto mb-6 flex items-center justify-center text-4xl"
-        >
-          👋
+      {/* Grid */}
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:60px_60px]" />
+
+      <motion.div variants={containerVariants} initial="hidden" animate="show" className="relative z-10 max-w-4xl">
+        {/* Avatar */}
+        <motion.div variants={itemVariants} className="mb-8 flex justify-center">
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 blur-lg" />
+            <div className="relative flex h-28 w-28 items-center justify-center rounded-full border-2 border-primary/30 bg-primary/5 text-5xl font-bold backdrop-blur-sm">👋</div>
+          </div>
         </motion.div>
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="text-primary font-medium mb-2 tracking-widest text-sm uppercase">
-          Hello, I am
+        {/* Intro */}
+        <motion.p variants={itemVariants} className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-primary">
+          Welcome to my portfolio
         </motion.p>
 
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="text-5xl md:text-7xl font-bold tracking-tight mb-4">
-          Ahmad Rafdy
-        </motion.h1>
+        {/* Title */}
+        <motion.div variants={itemVariants} className="mb-6">
+          <h1 className="text-6xl font-bold leading-tight tracking-tight md:text-7xl lg:text-8xl">
+            <span className="block">Ahmad</span>
+            <span className="block text-foreground/60">Rafdy</span>
+          </h1>
+        </motion.div>
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} className="text-xl md:text-2xl text-muted-foreground mb-2">
-          Web Developer
-        </motion.p>
+        {/* Description */}
+        <motion.div variants={itemVariants} className="mb-8">
+          <p className="mb-4 text-2xl font-medium text-muted-foreground md:text-3xl">Full Stack Web Developer</p>
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed">
-          Mahasiswa S1 Informatika di AMIKOM Yogyakarta yang passionate dalam membangun aplikasi web yang bermanfaat dan berdampak nyata.
-        </motion.p>
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">Crafting modern, intuitive web applications with clean code and exceptional user experiences. Based in Yogyakarta, Indonesia.</p>
+        </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }} className="flex flex-wrap gap-3 justify-center mb-12">
-          <a href="#projects" className="px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:opacity-90 transition-opacity">
-            Lihat Projects
+        {/* CTA */}
+        <motion.div variants={itemVariants} className="mb-12 flex flex-col justify-center gap-4 sm:flex-row">
+          <a
+            href="#projects"
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 font-semibold text-primary-foreground transition-all duration-200 hover:scale-105 hover:opacity-90 active:scale-95"
+          >
+            View My Work
+            <ExternalLink size={18} className="transition-transform group-hover:translate-x-0.5" />
           </a>
-          <a href="/cv.pdf" target="_blank" className="px-6 py-3 border border-border rounded-full font-medium hover:bg-accent transition-colors">
+
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border-2 border-foreground/20 px-8 py-4 font-semibold transition-all duration-200 hover:border-foreground/40 hover:bg-accent"
+          >
             Download CV
           </a>
         </motion.div>
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="flex gap-4 justify-center text-muted-foreground">
-          <a href="https://github.com/ahmdz01" target="_blank" className="hover:text-foreground transition-colors p-2 rounded-full hover:bg-accent">
+        {/* Social */}
+        <motion.div variants={itemVariants} className="flex justify-center gap-4">
+          <a
+            href="https://github.com/ahmdz01"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-border p-3 text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:bg-primary/5 hover:text-foreground"
+          >
             <GithubIcon />
           </a>
-          <a href="https://www.linkedin.com/in/ahmad-rafdy-ramadhan" target="_blank" className="hover:text-foreground transition-colors p-2 rounded-full hover:bg-accent">
+
+          <a
+            href="https://www.linkedin.com/in/ahmad-rafdy-ramadhan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-border p-3 text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:bg-primary/5 hover:text-foreground"
+          >
             <LinkedinIcon />
           </a>
-          <a href="mailto:ahmadrafdy01@gmail.com" className="hover:text-foreground transition-colors p-2 rounded-full hover:bg-accent">
+
+          <a href="mailto:ahmadrafdy01@gmail.com" className="rounded-full border border-border p-3 text-muted-foreground transition-all duration-200 hover:border-primary/50 hover:bg-primary/5 hover:text-foreground">
             <Mail size={20} />
           </a>
         </motion.div>
       </motion.div>
 
-      <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="absolute bottom-8 text-muted-foreground">
-        <ArrowDown size={20} />
+      {/* Scroll Indicator */}
+      <motion.div
+        animate={{ y: [0, 12, 0] }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+        }}
+        className="absolute bottom-12 text-muted-foreground/50"
+      >
+        <ArrowDown size={22} />
       </motion.div>
     </section>
   );
