@@ -111,8 +111,8 @@ export default function Hero() {
         {/* Title */}
         <motion.div variants={itemVariants} className="mb-4">
           <h1 className="text-6xl font-black leading-tight tracking-tight md:text-7xl lg:text-8xl">
-            <span className="block text-white">Ahmad</span>
-            <span className="block bg-gradient-to-r from-violet-400 via-purple-300 to-blue-400 bg-clip-text text-transparent animate-gradient">Rafdy</span>
+            <span className="block text-white">Ahmad Rafdy</span>
+            <span className="block bg-gradient-to-r from-violet-400 via-purple-300 to-blue-400 bg-clip-text text-transparent animate-gradient">Ramadhan</span>
           </h1>
         </motion.div>
 

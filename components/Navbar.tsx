@@ -46,7 +46,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <motion.a href="#" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="group relative text-xl font-black tracking-tight">
-          <span className="animate-gradient bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">rafdy</span>
+          <span className="animate-gradient bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">ahmdz</span>
           <span className="text-violet-400">.</span>
           <span className="text-white/90">dev</span>
           {/* Underline glow */}
